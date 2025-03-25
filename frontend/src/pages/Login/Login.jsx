@@ -10,7 +10,7 @@ import toast from 'react-hot-toast'
 const Login = () => {
   const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-  const {login}= useAuthStore()
+  const {login,isSigningUp}= useAuthStore()
 
   const handleLogin= (e)=>{
     e.preventDefault();
@@ -61,7 +61,7 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <Button>Entrar</Button>
+            <Button disabled={isSigningUp}>{isSigningUp ? "Loading..." : "Entrar"}</Button>
           </form>
           <div className="text-center text-gray-400">
             Não tem uma conta?{" "}

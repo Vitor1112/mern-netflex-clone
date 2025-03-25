@@ -22,7 +22,7 @@ searchParams.get("email"): Extrai o valor do parâmetro de consulta email da URL
 	const [password, setPassword] = useState("");
 
   // Hook 
-  const { signup } = useAuthStore()
+  const { signup,isSigningUp } = useAuthStore()
 
 
 
@@ -91,7 +91,7 @@ searchParams.get("email"): Extrai o valor do parâmetro de consulta email da URL
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <Button>Cadastrar</Button>
+            <Button disabled={isSigningUp}>{isSigningUp ? "Loading..." : "Cadastrar"}</Button>
           </form>
           <div className="text-center text-gray-400">
             Já possui uma conta?{" "}
