@@ -23,7 +23,8 @@ app.use("/api/v1/tv",protectRoute,tvRouter) // rotas de tv
 app.use("/api/v1/search",protectRoute,searchRouter) // rotas de buscar
 
 if (ENV_VARS.NODE_ENV === "production") {
-	app.use(express.static(path.join(__dirname, "/frontend/dist")));
+	/* app.use(express.static(path.join(__dirname, "/frontend/dist"))); */
+	app.use(express.static(path.join(__dirname, "frontend", "dist")));
 
 	app.get("*", (req, res) => {
 		res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
